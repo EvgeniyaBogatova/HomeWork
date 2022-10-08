@@ -1,0 +1,15 @@
+D:\Женя\учеба\HomeWork\Lesson1\bin\Debug\net6.0\Lesson1.exe
+D:\Женя\учеба\HomeWork\Lesson1\bin\Debug\net6.0\Lesson1.deps.json
+D:\Женя\учеба\HomeWork\Lesson1\bin\Debug\net6.0\Lesson1.runtimeconfig.json
+D:\Женя\учеба\HomeWork\Lesson1\bin\Debug\net6.0\Lesson1.dll
+D:\Женя\учеба\HomeWork\Lesson1\bin\Debug\net6.0\Lesson1.pdb
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\Lesson1.csproj.AssemblyReference.cache
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\Lesson1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\Lesson1.AssemblyInfoInputs.cache
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\Lesson1.AssemblyInfo.cs
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\Lesson1.csproj.CoreCompileInputs.cache
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\Lesson1.dll
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\refint\Lesson1.dll
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\Lesson1.pdb
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\Lesson1.genruntimeconfig.cache
+D:\Женя\учеба\HomeWork\Lesson1\obj\Debug\net6.0\ref\Lesson1.dll
