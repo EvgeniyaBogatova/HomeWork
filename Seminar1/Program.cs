@@ -61,13 +61,14 @@ else
         {
         int current = 2;
         while (current <= num)
-        {Console.WriteLine(current + " ");
+        {Console.Write(current + " ");
         current = current + 2;}
         }
     else
         {
             int current = -2;
             while (current >= num)
-            {Console.WriteLine(current + " ");
+            {Console.Write(current + " ");
             current = current - 2;}
         }}
+
