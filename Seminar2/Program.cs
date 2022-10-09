@@ -1,24 +1,24 @@
 ﻿//Задача 1: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
 
-int RemoveSecond(int num)
-{
-int sec = num / 10 % 10;
- return sec;
- }
+// int RemoveSecond(int num)
+// {
+// int sec = num / 10 % 10;
+//  return sec;
+//  }
 
-Console.Write("Input three-digit number: ");
-int number = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input three-digit number: ");
+// int number = Convert.ToInt32(Console.ReadLine());
 
-if (number <= -100 && number > -1000)
-{
-    number = -number;
-    Console.WriteLine($"Second digit of -{number} is {RemoveSecond(number)}");
-}
-else
-    if (number >= 100 && number < 1000)
-        Console.WriteLine($"Second digit of {number} is {RemoveSecond(number)}");
-    else
-        Console.WriteLine("Uncorrect imput");
+// if (number <= -100 && number > -1000)
+// {
+//     number = -number;
+//     Console.WriteLine($"Second digit of -{number} is {RemoveSecond(number)}");
+// }
+// else
+//     if (number >= 100 && number < 1000)
+//         Console.WriteLine($"Second digit of {number} is {RemoveSecond(number)}");
+//     else
+//         Console.WriteLine("Uncorrect imput");
 
 
 
@@ -45,3 +45,21 @@ else
 
 
 //Задача 3: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+
+bool Weekend(int num)
+{
+    if (num == 6 || num == 7)
+    return true;
+    else
+    return false;}
+
+Console.Write("Input number day of the week: ");
+int day = Convert.ToInt32(Console.ReadLine());
+
+if (day > 0 && day < 8)
+    {if (Weekend(day))
+        Console.WriteLine("It is WEEKEND!");
+    else
+        Console.WriteLine("O, no. It is workday");}
+else
+    Console.WriteLine("Days of the week is only seven, try again");
