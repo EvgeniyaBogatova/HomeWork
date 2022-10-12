@@ -1,41 +1,40 @@
 ﻿// задача 1: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 
-int PowerOf(int a, int b)
-{
-    int res = 1;
-    for (int i = 1; i <= b; i++)
-        res = res * a;
-return res;
-}
+// int PowerOf(int a, int b)
+// {
+//     int res = 1;
+//     for (int i = 1; i <= b; i++)
+//         res = res * a;
+// return res;
+// }
 
-Console.Write("Input integer first number: ");
-int num1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input integer positive second number: ");
-int num2 = Convert.ToInt32(Console.ReadLine());
-if (num2 > 0)
-    Console.WriteLine($"Number {num1} to power {num2} is {PowerOf(num1, num2)}");
-else if (num2==0)
-    Console.WriteLine($"Number {num1} to power {num2} is 1");
-else
-Console.WriteLine("Uncorrect input");
+// Console.Write("Input integer first number: ");
+// int num1 = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input integer positive second number: ");
+// int num2 = Convert.ToInt32(Console.ReadLine());
+// if (num2 > 0)
+//     Console.WriteLine($"Number {num1} to power {num2} is {PowerOf(num1, num2)}");
+// else if (num2==0)
+//     Console.WriteLine($"Number {num1} to power {num2} is 1");
+// else
+// Console.WriteLine("Uncorrect input");
 
 // Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
-// 452 -> 11
+int GetSum(int a)
+{
+int res = 0;
+while (a > 0)
+{ 
+    res = res + a % 10;
+    a = a / 10;
+}
+return res;
+}
+Console.Write("Input integer number: ");
+int num = Convert.ToInt32(Console.ReadLine());
 
-// 82 -> 10
-
-// 9012 -> 12
-// int GetSum(int a)
-// {
-// int res=0;
-// while (a>0)
-// { res=res+ a%10;
-// a=a/10;
-// }}
-// Console.Write("Input number: ");
-// num=Convert.ToUInt32(Console.ReadLine());
-// Console.WriteLine(GetSum(num));
+    Console.WriteLine($"Sum of the digits of {num} is {GetSum(Math.Abs(num))}");
 
 // Задача 29: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
 
