@@ -38,11 +38,20 @@
 
 // Задача 29: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
 
-int[] CreateRandomArray(int size, int minValue, int maxValue)
-{ 
-int[] array = new int[size];
+// int[] CreateRandomArray(int size, int minValue, int maxValue)
+// { 
+// int[] array = new int[size];
+// for (int i = 0; i < size; i++)
+//     array[i] = new Random().Next(minValue, maxValue + 1);
+// return array;
+// }
+
+int[] CreateArray(int size)
+{ int[] array = new int[size];
 for (int i = 0; i < size; i++)
-    array[i] = new Random().Next(minValue, maxValue + 1);
+{
+     Console.Write($"Введите значение элемента с индексом {i}: ");
+    array[i] = Convert.ToInt32(Console.ReadLine());}
 return array;
 }
 
@@ -55,10 +64,11 @@ Console.WriteLine();
 
 Console.Write("Input length of array: ");
 int lenght=Convert.ToInt32(Console.ReadLine());
-Console.Write("Input minimal of numbers : ");
-int num1=Convert.ToInt32(Console.ReadLine());
-Console.Write("Input maximal of numbers: ");
-int num2=Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input minimal of numbers : ");
+// int num1=Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input maximal of numbers: ");
+// int num2=Convert.ToInt32(Console.ReadLine());
 
-int[] ArrayNew = CreateRandomArray(lenght, num1, num2);
+// int[] ArrayNew = CreateRandomArray(lenght, num1, num2);
+int[] ArrayNew = CreateArray(lenght);
 ShowArray(ArrayNew);
