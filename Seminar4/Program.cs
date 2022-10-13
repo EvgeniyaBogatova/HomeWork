@@ -19,7 +19,7 @@
 // else
 // Console.WriteLine("Uncorrect input");
 
-// Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+// Задача 2: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
 // int GetSum(int a)
 // {
@@ -36,7 +36,7 @@
 
 //     Console.WriteLine($"Sum of the digits of {num} is {GetSum(Math.Abs(num))}");
 
-// Задача 29: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
+// Задача 3: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
 
 // int[] CreateRandomArray(int size, int minValue, int maxValue)
 // { 
@@ -50,7 +50,7 @@ int[] CreateArray(int size)
 { int[] array = new int[size];
 for (int i = 0; i < size; i++)
 {
-     Console.Write($"Введите значение элемента с индексом {i}: ");
+     Console.Write($"Input the value element of the index {i}: ");
     array[i] = Convert.ToInt32(Console.ReadLine());}
 return array;
 }
