@@ -18,27 +18,31 @@
 
 // Задача 1.1 Если число любой длины
 
-void Pal (string num)
+bool Pal (string num)
 {
-    if (num[0] == -)
-        int i = 1;
-    else
-    int i = 0;
-int j = num.Length - 1;
+    char minus = '-';   // Символ в символьную переменную заносится в одинарных кавычках
+    int i = 0;          
+    if (num[0] == minus) 
+       i = 1;           // Если первый знак '-', то считать со второго символа, иначе с первого
+ int j = num.Length - 1;
     while (i <= j)
     {
         if (num[i] == num[j])
-        {i++;
-        j--;}
-        Console.WriteLine($"Your number {num} is palindrom");
-    }
-    Console.WriteLine($"NO, your number {num} is not palindrom");
-      
-}
+            {i++;
+            j--;}
+        else
+            return false;
+            }
+    return true;
+      }
 
 Console.Write("Input integer positive number: ");
 string a = Console.ReadLine();
-Pal(a);
+if (Pal(a))
+Console.WriteLine($"Your number {a} is palindrom");
+else
+Console.WriteLine($"NO, your number {a} is not palindrom");
+
 
 // Задача 2
 // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
