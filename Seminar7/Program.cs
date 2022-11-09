@@ -19,8 +19,8 @@ double [,] array = new double[rows,columns];
 Random rnd = new Random();
 for (int i = 0; i < rows; i++)
     for (int j = 0; j < columns; j++)
-        // array[i,j] = Math.Round((minValue+ (maxValue-minValue)*new Random().NextDouble()),2);
-        array[i,j] = Math.Round((new Random().Next(minValue,maxValue) + new Random().NextDouble()),2);
+        array[i,j] = Math.Round((minValue+ (maxValue-minValue)*new Random().NextDouble()),2);
+        // array[i,j] = Math.Round((new Random().Next(minValue,maxValue) + new Random().NextDouble()),2);
 return array;
 }
 
@@ -37,8 +37,6 @@ void Show2DArray (double [,] array)
 double [,] myArray = Create2DArray();
 Show2DArray (myArray);
 
-
-
 // Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
 // Например, задан массив:
 
@@ -46,6 +44,22 @@ Show2DArray (myArray);
 // 5 9 2 3
 // 8 4 2 4
 // 1 7 -> числа с такими индексами в массиве нет
+void GetElementValue (double [,] array, int row, int column)
+{
+    if (row <= array.GetLength(0) && column <= array.GetLength(1))
+        Console.WriteLine($"Element on {row} line and {column} column is {array[row-1,column-1]}");
+    else
+        Console.WriteLine("Element missing");
+}
+
+Console.WriteLine("Set the position of the element");
+Console.WriteLine("Set the row number: ");
+int row = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Set the column number: ");
+int column = Convert.ToInt32(Console.ReadLine());
+
+GetElementValue (myArray, row, column);
+
 
 // Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
