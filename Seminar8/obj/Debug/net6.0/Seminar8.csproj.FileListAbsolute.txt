@@ -1,0 +1,15 @@
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\Seminar8.csproj.AssemblyReference.cache
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\Seminar8.GeneratedMSBuildEditorConfig.editorconfig
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\Seminar8.AssemblyInfoInputs.cache
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\Seminar8.AssemblyInfo.cs
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\Seminar8.csproj.CoreCompileInputs.cache
+D:\Женя\учеба\HomeWork\Seminar8\bin\Debug\net6.0\Seminar8.exe
+D:\Женя\учеба\HomeWork\Seminar8\bin\Debug\net6.0\Seminar8.deps.json
+D:\Женя\учеба\HomeWork\Seminar8\bin\Debug\net6.0\Seminar8.runtimeconfig.json
+D:\Женя\учеба\HomeWork\Seminar8\bin\Debug\net6.0\Seminar8.dll
+D:\Женя\учеба\HomeWork\Seminar8\bin\Debug\net6.0\Seminar8.pdb
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\Seminar8.dll
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\refint\Seminar8.dll
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\Seminar8.pdb
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\Seminar8.genruntimeconfig.cache
+D:\Женя\учеба\HomeWork\Seminar8\obj\Debug\net6.0\ref\Seminar8.dll
