@@ -55,6 +55,7 @@
 // BubbleRowsArray(myArray);
 // Console.WriteLine();
 // Show2DArray(myArray);
+
 // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
 // Например, задан массив:
@@ -73,6 +74,72 @@
 // 18 20
 // 15 18
 
+int [,] Create2DArray()
+{
+    Console.WriteLine("Set the number of rows: ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Set the number of columns: ");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input min possible value: ");
+    int minValue = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input max possible value: ");
+    int maxValue = Convert.ToInt32(Console.ReadLine());
+
+int [,] array = new int[rows,columns];
+for (int i = 0; i < rows; i++)
+    for (int j = 0; j < columns; j++)
+        array[i,j] = new Random().Next(minValue, maxValue);
+        
+return array;
+}
+
+ void Show2DArray (int [,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i,j] + " ");
+        Console.WriteLine();
+    }
+}
+
+int[,] MatrixMultiplication(int [,] array1, int [,] array2)
+{
+int [,] array = new int[Math.Min(array1.GetLength(0),array2.GetLength(0)), Math.Min(array1.GetLength(1),array2.GetLength(1))];
+for (int i = 0; i < array.GetLength(0); i++)
+    for (int j = 0; j < array.GetLength(1); j++)
+        for (int k = 0; k < array1.GetLength(1) && k < array2.GetLength(0); k++)
+            array[i,j] += array1[i,0 + k] * array2[0 + k, j];
+            
+return array;
+}
+
+void MatrixMult(int [,] array1, int [,] array2) // Вариант метода без инициации нового массива
+{
+for (int i = 0; i < array1.GetLength(0); i++)
+    for (int j = 0; j < array2.GetLength(1); j++)
+        {   int element = 0;
+            for (int k = 0; k < array1.GetLength(1) && k < array2.GetLength(0); k++)
+                element += array1[i,0 + k] * array2[0 + k, j];
+            Console.WriteLine(element + $"({i}, {j})");}
+}
+Console.WriteLine ("Please, set the first matrix:");
+int[,] firstArray = Create2DArray();
+Console.WriteLine();
+Show2DArray(firstArray);
+Console.WriteLine();
+Console.WriteLine ("Please, set the second matrix:");
+int[,] secondArray = Create2DArray();
+Console.WriteLine();
+Show2DArray(secondArray);
+Console.WriteLine();
+
+// MatrixMult(firstArray, secondArray);
+
+int [,] newArray = MatrixMultiplication(firstArray, secondArray);
+Console.WriteLine("As a result of multiplying of matrixes is");
+Show2DArray(newArray);
+
 // Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 // Массив размером 2 x 2 x 2
 // 66(0,0,0) 25(0,1,0)
@@ -80,8 +147,8 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-int [,,] Create3DArray()
-{
+// int [,,] Create3DArray()
+// {
     // Console.WriteLine("Set the number of rows: ");
     // int rows = Convert.ToInt32(Console.ReadLine());
     // Console.WriteLine("Set the number of columns: ");
@@ -90,40 +157,41 @@ int [,,] Create3DArray()
     // int minValue = Convert.ToInt32(Console.ReadLine());
     // Console.WriteLine("Input max possible value: ");
     // int maxValue = Convert.ToInt32(Console.ReadLine());
-bool [] onceArray = new bool [89];
-for (int i = 0; i < onceArray.Length; i++)
-    onceArray[i] = false;
+// bool [] onceArray = new bool [89];
+// for (int i = 0; i < onceArray.Length; i++)
+//     onceArray[i] = false;
 
-int [, ,] array = new int[2,2,2];
-for (int i = 0; i < array.GetLength(0); i++)
-    for (int j = 0; j < array.GetLength(1); j++)
-        for (int k = 0; k < array.GetLength(2); k++)
-            {
-            do
-            array[i,j,k] = new Random().Next(10,100);
-            while (onceArray[array[i,j,k]-10]);
-            onceArray[array[i,j,k]-10] = true;
-            }
-return array;
-}
+// int [, ,] array = new int[2,2,2];
+// for (int i = 0; i < array.GetLength(0); i++)
+//     for (int j = 0; j < array.GetLength(1); j++)
+//         for (int k = 0; k < array.GetLength(2); k++)
+//             {
+//             do
+//             array[i,j,k] = new Random().Next(10,100);
+//             while (onceArray[array[i,j,k]-10]);
+//             onceArray[array[i,j,k]-10] = true;
+//             }
+// return array;
+// }
 
-void Show3DArray (int [,,] array)
-{
-    for (int k = 0; k < array.GetLength(2); k++)
-        {
-        for (int i = 0; i < array.GetLength(0); i++)
-            {for (int j = 0; j < array.GetLength(1); j++)
+// void Show3DArray (int [,,] array)
+// {
+//     for (int k = 0; k < array.GetLength(2); k++)
+//         {
+//         for (int i = 0; i < array.GetLength(0); i++)
+//             {for (int j = 0; j < array.GetLength(1); j++)
                 
-                Console.Write(array[i,j,k] + $"({i},{j},{k})" + " ");
-                Console.WriteLine();
-            }
-            Console.WriteLine();
-            }
-        Console.WriteLine();
+//                 Console.Write(array[i,j,k] + $"({i},{j},{k})" + " ");
+//                 Console.WriteLine();
+//             }
+//             Console.WriteLine();
+//             }
+//         Console.WriteLine();
         
-}
+// }
     
-Show3DArray (Create3DArray());
+// Show3DArray (Create3DArray());
+
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
 // 01 02 03 04
