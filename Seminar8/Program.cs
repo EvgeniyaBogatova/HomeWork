@@ -66,14 +66,6 @@
 
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
-// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
-// Например, даны 2 матрицы:
-// 2 4 | 3 4
-// 3 2 | 3 3
-// Результирующая матрица будет:
-// 18 20
-// 15 18
-
 int [,] Create2DArray()
 {
     Console.WriteLine("Set the number of rows: ");
@@ -93,7 +85,7 @@ for (int i = 0; i < rows; i++)
 return array;
 }
 
- void Show2DArray (int [,] array)
+void Show2DArray (int [,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -103,42 +95,116 @@ return array;
     }
 }
 
-int[,] MatrixMultiplication(int [,] array1, int [,] array2)
+int RowsWithMinSumm(int [,] array)
 {
-int [,] array = new int[Math.Min(array1.GetLength(0),array2.GetLength(0)), Math.Min(array1.GetLength(1),array2.GetLength(1))];
-for (int i = 0; i < array.GetLength(0); i++)
+    int minSum = 0;
     for (int j = 0; j < array.GetLength(1); j++)
-        for (int k = 0; k < array1.GetLength(1) && k < array2.GetLength(0); k++)
-            array[i,j] += array1[i,0 + k] * array2[0 + k, j];
+        minSum += array[0,j];
+    int result = 0;
+    int sum = 0;
+    for (int i = 1; i < array.GetLength(0)-1; )
+        {for (int j = 0; j < array.GetLength(1); j++)
+            sum += array[i,j];
+        if (sum < minSum)
+            {minSum = sum;
+            result = i;}
+        i++;}
+    return result+1;
+}
+// int RowsWithMinSumm(int [,] array)         //метод с использованием вспомогательного массива
+// {
+//     int[] rowArray = new int[array.GetLength(0)];
+    
+//     for (int i = 1; i < array.GetLength(0)-1; i++)
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             rowArray[i] += array[i,j];
+    
+//     int min = 0;
+//     for (int i = 1; i < rowArray.Length; i++)
+//         if (rowArray[i] < rowArray[min])
+//             min = i;
+        
+//     return min+1;
+// }
+
+int [,] myNewArray = Create2DArray();
+Show2DArray(myNewArray);
+Console.WriteLine ("Row with minimal summ of elements is " + RowsWithMinSumm(myNewArray));
+
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
+// int [,] Create2DArray()
+// {
+//     Console.WriteLine("Set the number of rows: ");
+//     int rows = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Set the number of columns: ");
+//     int columns = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Input min possible value: ");
+//     int minValue = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Input max possible value: ");
+//     int maxValue = Convert.ToInt32(Console.ReadLine());
+
+// int [,] array = new int[rows,columns];
+// for (int i = 0; i < rows; i++)
+//     for (int j = 0; j < columns; j++)
+//         array[i,j] = new Random().Next(minValue, maxValue);
+        
+// return array;
+// }
+
+//  void Show2DArray (int [,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             Console.Write(array[i,j] + " ");
+//         Console.WriteLine();
+//     }
+// }
+
+// int[,] MatrixMultiplication(int [,] array1, int [,] array2)
+// {
+// int [,] array = new int[Math.Min(array1.GetLength(0),array2.GetLength(0)), Math.Min(array1.GetLength(1),array2.GetLength(1))];
+// for (int i = 0; i < array.GetLength(0); i++)
+//     for (int j = 0; j < array.GetLength(1); j++)
+//         for (int k = 0; k < array1.GetLength(1) && k < array2.GetLength(0); k++)
+//             array[i,j] += array1[i,0 + k] * array2[0 + k, j];
             
-return array;
-}
+// return array;
+// }
 
-void MatrixMult(int [,] array1, int [,] array2) // Вариант метода без инициации нового массива
-{
-for (int i = 0; i < array1.GetLength(0); i++)
-    for (int j = 0; j < array2.GetLength(1); j++)
-        {   int element = 0;
-            for (int k = 0; k < array1.GetLength(1) && k < array2.GetLength(0); k++)
-                element += array1[i,0 + k] * array2[0 + k, j];
-            Console.WriteLine(element + $"({i}, {j})");}
-}
-Console.WriteLine ("Please, set the first matrix:");
-int[,] firstArray = Create2DArray();
-Console.WriteLine();
-Show2DArray(firstArray);
-Console.WriteLine();
-Console.WriteLine ("Please, set the second matrix:");
-int[,] secondArray = Create2DArray();
-Console.WriteLine();
-Show2DArray(secondArray);
-Console.WriteLine();
+// void MatrixMult(int [,] array1, int [,] array2) // Вариант метода без инициации нового массива2
+// {
+// for (int i = 0; i < array1.GetLength(0); i++)
+//     for (int j = 0; j < array2.GetLength(1); j++)
+//         {   int element = 0;
+//             for (int k = 0; k < array1.GetLength(1) && k < array2.GetLength(0); k++)
+//                 element += array1[i,0 + k] * array2[0 + k, j];
+//             Console.WriteLine(element + $"({i}, {j})");}
+// }
+// Console.WriteLine ("Please, set the first matrix:");
+// int[,] firstArray = Create2DArray();
+// Console.WriteLine();
+// Show2DArray(firstArray);
+// Console.WriteLine();
+// Console.WriteLine ("Please, set the second matrix:");
+// int[,] secondArray = Create2DArray();
+// Console.WriteLine();
+// Show2DArray(secondArray);
+// Console.WriteLine();
 
-// MatrixMult(firstArray, secondArray);
+// // MatrixMult(firstArray, secondArray);
 
-int [,] newArray = MatrixMultiplication(firstArray, secondArray);
-Console.WriteLine("As a result of multiplying of matrixes is");
-Show2DArray(newArray);
+// int [,] newArray = MatrixMultiplication(firstArray, secondArray);
+// Console.WriteLine("As a result of multiplying of matrixes is");
+// Show2DArray(newArray);
 
 // Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 // Массив размером 2 x 2 x 2
