@@ -66,70 +66,70 @@
 
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
-int [,] Create2DArray()
-{
-    Console.WriteLine("Set the number of rows: ");
-    int rows = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Set the number of columns: ");
-    int columns = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Input min possible value: ");
-    int minValue = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Input max possible value: ");
-    int maxValue = Convert.ToInt32(Console.ReadLine());
-
-int [,] array = new int[rows,columns];
-for (int i = 0; i < rows; i++)
-    for (int j = 0; j < columns; j++)
-        array[i,j] = new Random().Next(minValue, maxValue);
-        
-return array;
-}
-
-void Show2DArray (int [,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-            Console.Write(array[i,j] + " ");
-        Console.WriteLine();
-    }
-}
-
-int RowsWithMinSumm(int [,] array)
-{
-    int minSum = 0;
-    for (int j = 0; j < array.GetLength(1); j++)
-        minSum += array[0,j];
-    int result = 0;
-    int sum = 0;
-    for (int i = 1; i < array.GetLength(0)-1; )
-        {for (int j = 0; j < array.GetLength(1); j++)
-            sum += array[i,j];
-        if (sum < minSum)
-            {minSum = sum;
-            result = i;}
-        i++;}
-    return result+1;
-}
-// int RowsWithMinSumm(int [,] array)         //метод с использованием вспомогательного массива
+// int [,] Create2DArray()
 // {
-//     int[] rowArray = new int[array.GetLength(0)];
-    
-//     for (int i = 1; i < array.GetLength(0)-1; i++)
-//         for (int j = 0; j < array.GetLength(1); j++)
-//             rowArray[i] += array[i,j];
-    
-//     int min = 0;
-//     for (int i = 1; i < rowArray.Length; i++)
-//         if (rowArray[i] < rowArray[min])
-//             min = i;
+//     Console.WriteLine("Set the number of rows: ");
+//     int rows = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Set the number of columns: ");
+//     int columns = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Input min possible value: ");
+//     int minValue = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Input max possible value: ");
+//     int maxValue = Convert.ToInt32(Console.ReadLine());
+
+// int [,] array = new int[rows,columns];
+// for (int i = 0; i < rows; i++)
+//     for (int j = 0; j < columns; j++)
+//         array[i,j] = new Random().Next(minValue, maxValue);
         
-//     return min+1;
+// return array;
 // }
 
-int [,] myNewArray = Create2DArray();
-Show2DArray(myNewArray);
-Console.WriteLine ("Row with minimal summ of elements is " + RowsWithMinSumm(myNewArray));
+// void Show2DArray (int [,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             Console.Write(array[i,j] + " ");
+//         Console.WriteLine();
+//     }
+// }
+
+// int RowsWithMinSumm(int [,] array)
+// {
+//     int minSum = 0;
+//     for (int j = 0; j < array.GetLength(1); j++)
+//         minSum += array[0,j];
+//     int result = 0;
+//     int sum = 0;
+//     for (int i = 1; i < array.GetLength(0)-1; )
+//         {for (int j = 0; j < array.GetLength(1); j++)
+//             sum += array[i,j];
+//         if (sum < minSum)
+//             {minSum = sum;
+//             result = i;}
+//         i++;}
+//     return result+1;
+// }
+// // int RowsWithMinSumm(int [,] array)         //метод с использованием вспомогательного массива
+// // {
+// //     int[] rowArray = new int[array.GetLength(0)];
+    
+// //     for (int i = 1; i < array.GetLength(0)-1; i++)
+// //         for (int j = 0; j < array.GetLength(1); j++)
+// //             rowArray[i] += array[i,j];
+    
+// //     int min = 0;
+// //     for (int i = 1; i < rowArray.Length; i++)
+// //         if (rowArray[i] < rowArray[min])
+// //             min = i;
+        
+// //     return min+1;
+// // }
+
+// int [,] myNewArray = Create2DArray();
+// Show2DArray(myNewArray);
+// Console.WriteLine ("Row with minimal summ of elements is " + RowsWithMinSumm(myNewArray));
 
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
@@ -180,7 +180,7 @@ Console.WriteLine ("Row with minimal summ of elements is " + RowsWithMinSumm(myN
 // return array;
 // }
 
-// void MatrixMult(int [,] array1, int [,] array2) // Вариант метода без инициации нового массива2
+// void MatrixMult(int [,] array1, int [,] array2) // Вариант метода без инициации нового массива
 // {
 // for (int i = 0; i < array1.GetLength(0); i++)
 //     for (int j = 0; j < array2.GetLength(1); j++)
@@ -213,50 +213,54 @@ Console.WriteLine ("Row with minimal summ of elements is " + RowsWithMinSumm(myN
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-// int [,,] Create3DArray()
-// {
-    // Console.WriteLine("Set the number of rows: ");
-    // int rows = Convert.ToInt32(Console.ReadLine());
-    // Console.WriteLine("Set the number of columns: ");
-    // int columns = Convert.ToInt32(Console.ReadLine());
-    // Console.WriteLine("Input min possible value: ");
-    // int minValue = Convert.ToInt32(Console.ReadLine());
-    // Console.WriteLine("Input max possible value: ");
-    // int maxValue = Convert.ToInt32(Console.ReadLine());
-// bool [] onceArray = new bool [89];
-// for (int i = 0; i < onceArray.Length; i++)
-//     onceArray[i] = false;
-
-// int [, ,] array = new int[2,2,2];
-// for (int i = 0; i < array.GetLength(0); i++)
-//     for (int j = 0; j < array.GetLength(1); j++)
-//         for (int k = 0; k < array.GetLength(2); k++)
-//             {
-//             do
-//             array[i,j,k] = new Random().Next(10,100);
-//             while (onceArray[array[i,j,k]-10]);
-//             onceArray[array[i,j,k]-10] = true;
-//             }
-// return array;
-// }
-
-// void Show3DArray (int [,,] array)
-// {
-//     for (int k = 0; k < array.GetLength(2); k++)
-//         {
-//         for (int i = 0; i < array.GetLength(0); i++)
-//             {for (int j = 0; j < array.GetLength(1); j++)
-                
-//                 Console.Write(array[i,j,k] + $"({i},{j},{k})" + " ");
-//                 Console.WriteLine();
-//             }
-//             Console.WriteLine();
-//             }
-//         Console.WriteLine();
+int [,,] Create3DArray()
+{
+    int first = 0;
+    int second = 0;
+    int third = 0;
+    do 
+    {Console.WriteLine("Set first index: ");
+    first = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Set second index: ");
+    second = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Set third index: ");
+    third = Convert.ToInt32(Console.ReadLine());}
+    while (first*second*third > 89);
         
-// }
+bool [] onceArray = new bool [89];
+for (int i = 0; i < onceArray.Length; i++)
+    onceArray[i] = false;
+
+int [, ,] array = new int[first,second,third];
+for (int i = 0; i < first; i++)
+    for (int j = 0; j < second; j++)
+        for (int k = 0; k < third; k++)
+            {
+            do
+            array[i,j,k] = new Random().Next(10,100);
+            while (onceArray[array[i,j,k]-10]);
+            onceArray[array[i,j,k]-10] = true;
+            }
+return array;
+}
+
+void Show3DArray (int [,,] array)
+{
+    for (int k = 0; k < array.GetLength(2); k++)
+        {
+        for (int i = 0; i < array.GetLength(0); i++)
+            {for (int j = 0; j < array.GetLength(1); j++)
+                
+                Console.Write(array[i,j,k] + $"({i},{j},{k})" + " ");
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+            }
+        Console.WriteLine();
+        
+}
     
-// Show3DArray (Create3DArray());
+Show3DArray (Create3DArray());
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
