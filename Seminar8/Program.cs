@@ -213,54 +213,54 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-int [,,] Create3DArray()
-{
-    int first = 0;
-    int second = 0;
-    int third = 0;
-    do 
-    {Console.WriteLine("Set first index: ");
-    first = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Set second index: ");
-    second = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Set third index: ");
-    third = Convert.ToInt32(Console.ReadLine());}
-    while (first*second*third > 89);
+// int [,,] Create3DArray()
+// {
+//     int first = 0;
+//     int second = 0;
+//     int third = 0;
+//     do 
+//     {Console.WriteLine("Set first index: ");
+//     first = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Set second index: ");
+//     second = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Set third index: ");
+//     third = Convert.ToInt32(Console.ReadLine());}
+//     while (first*second*third > 89);
         
-bool [] onceArray = new bool [89];
-for (int i = 0; i < onceArray.Length; i++)
-    onceArray[i] = false;
+// bool [] onceArray = new bool [89];
+// for (int i = 0; i < onceArray.Length; i++)
+//     onceArray[i] = false;
 
-int [, ,] array = new int[first,second,third];
-for (int i = 0; i < first; i++)
-    for (int j = 0; j < second; j++)
-        for (int k = 0; k < third; k++)
-            {
-            do
-            array[i,j,k] = new Random().Next(10,100);
-            while (onceArray[array[i,j,k]-10]);
-            onceArray[array[i,j,k]-10] = true;
-            }
-return array;
-}
+// int [, ,] array = new int[first,second,third];
+// for (int i = 0; i < first; i++)
+//     for (int j = 0; j < second; j++)
+//         for (int k = 0; k < third; k++)
+//             {
+//             do
+//             array[i,j,k] = new Random().Next(10,100);
+//             while (onceArray[array[i,j,k]-10]);
+//             onceArray[array[i,j,k]-10] = true;
+//             }
+// return array;
+// }
 
-void Show3DArray (int [,,] array)
-{
-    for (int k = 0; k < array.GetLength(2); k++)
-        {
-        for (int i = 0; i < array.GetLength(0); i++)
-            {for (int j = 0; j < array.GetLength(1); j++)
+// void Show3DArray (int [,,] array)
+// {
+//     for (int k = 0; k < array.GetLength(2); k++)
+//         {
+//         for (int i = 0; i < array.GetLength(0); i++)
+//             {for (int j = 0; j < array.GetLength(1); j++)
                 
-                Console.Write(array[i,j,k] + $"({i},{j},{k})" + " ");
-                Console.WriteLine();
-            }
-            Console.WriteLine();
-            }
-        Console.WriteLine();
+//                 Console.Write(array[i,j,k] + $"({i},{j},{k})" + " ");
+//                 Console.WriteLine();
+//             }
+//             Console.WriteLine();
+//             }
+//         Console.WriteLine();
         
-}
+// }
     
-Show3DArray (Create3DArray());
+// Show3DArray (Create3DArray());
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
@@ -268,3 +268,165 @@ Show3DArray (Create3DArray());
 // 12 13 14 05
 // 11 16 15 06
 // 10 09 08 07
+
+int [,] CreateSpiral2DArray()
+{
+    Console.WriteLine("Set the number of rows: ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Set the number of columns: ");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input min possible value: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    
+int [,] spiralArray = new int [rows,columns];
+
+
+int i=0;
+int j=0;
+int mini=0;
+int minj=0;
+int cou=0;
+int maxi=rows-1;
+int maxj=columns-1;
+
+while(cou<rows*columns)
+{
+    for(;i<=maxi;)
+    {
+        spiralArray [i,j]=cou;
+        cou++;
+        i++;
+
+    }
+    maxi--;
+   
+    i--;
+    j++;
+   
+    for (;j<=maxj;)
+    {
+        spiralArray [i,j]=cou;
+        cou++;
+        j++;  
+    }
+    maxj--;
+    
+    j--;
+    i--;
+    
+    for(;i>=mini;)
+    {
+        spiralArray [i,j]=cou;
+        cou++;
+        i--;
+    }
+    mini++;
+    
+    i++;
+    j--;
+   
+    for(;j>minj;)
+    {
+        spiralArray [i,j]=cou;
+        cou++;
+        j--;
+    }
+    minj++;
+   
+    j++;
+    i++;
+   
+}
+
+return spiralArray;
+}
+
+int [,] CreateSpiral2DArrayRight()
+{
+    Console.WriteLine("Set the number of rows: ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Set the number of columns: ");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input min possible value: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    
+int [,] spiralArray = new int [rows,columns];
+
+
+int i=0;
+int j=0;
+int mini=0;
+int minj=0;
+int cou=num;
+int maxi=rows-1;
+int maxj=columns-1;
+
+while(cou<(rows*columns)+num)
+{
+    for(;j<=maxj && cou<(rows*columns)+num;)
+    {
+        spiralArray [i,j]=cou;
+        cou++;
+        j++;
+
+    }
+    maxj--;
+    
+    j--;
+    i++;
+    
+    for (;i<=maxi && cou<(rows*columns)+num;)
+    {
+        spiralArray [i,j]=cou;
+        cou++;
+        i++;  
+    }
+    maxi--;
+    
+    i--;
+    j--;
+    
+    for(;j>=minj && cou<(rows*columns)+num;)
+    {
+        spiralArray [i,j]=cou;
+        cou++;
+        j--;
+    }
+    minj++;
+    
+    j++;
+    i--;
+   
+    for(;i>mini && cou<(rows*columns)+num;)
+    {
+        spiralArray [i,j]=cou;
+        cou++;
+        i--;
+    }
+    mini++;
+    //if(minj==maxj) break;
+    i++;
+    j++;
+    
+  
+}
+
+   
+return spiralArray;
+}
+
+
+void Show2DArray (int [,] array)
+ {
+     for (int i = 0; i < array.GetLength(0); i++)
+     {
+         for (int j = 0; j < array.GetLength(1); j++)
+             Console.Write(array[i,j] + " ");
+        Console.WriteLine();
+     }
+ }
+
+
+
+// Show2DArray(CreateSpiral2DArray ());
+Show2DArray(CreateSpiral2DArrayRight());
