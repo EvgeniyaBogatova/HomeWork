@@ -12,3 +12,23 @@ for (int i = 0; i < length; i++)
 return arrayString;
 }
 
+str [] GetStringThree (str [])
+{
+int [] array = new int [str.GetLength];
+
+int count = 0;
+int j = 0;
+for (int i = 0; i < str.GetLength; i++)
+    if (str[i].GetLength <=3 )
+        {array[j] = i;
+        count ++;
+        j++;}
+    
+string [] newArray = new string [count];
+j=0;
+for (int i = 0; i < count; i++)
+    {newArray[i] = str[array[j]];
+    j++;}
+return newArray;
+}
+
